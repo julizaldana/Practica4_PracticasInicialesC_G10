@@ -1,12 +1,12 @@
 import mysql from 'promise-mysql';
 
-import keys from './keys';
+import keys from './keys_curso';
 
 const pool = mysql.createPool(keys.database);
 
 pool.getConnection()
     .then(connection => {
         pool.releaseConnection(connection);
-        console.log('DB is connected')
+        console.log('DB curso esta conectada x2')
     })
 export default pool;

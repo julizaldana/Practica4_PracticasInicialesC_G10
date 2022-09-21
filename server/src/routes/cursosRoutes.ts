@@ -8,7 +8,11 @@ class CursosRoutes {
     }
 
     config(): void {
-        this.router.get('/',cursoController.index);
+        this.router.get('/',cursoController.list);
+        this.router.get('/:id',cursoController.getOne);
+        this.router.post('/', cursoController.create)
+        this.router.delete('/:id', cursoController.delete)
+        this.router.put('/:id', cursoController.update)
     }
 }
 const cursosRoutes = new CursosRoutes();
