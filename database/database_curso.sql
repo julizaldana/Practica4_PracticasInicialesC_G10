@@ -16,7 +16,7 @@ CREATE TABLE publis(
     user VARCHAR(20),
     curso_catedratico VARCHAR(180),
     mensaje VARCHAR(200),
-    fecha VARCHAR(50)
+    fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 DESCRIBE publis;
@@ -32,3 +32,13 @@ CREATE TABLE users(
 );
 
 DESCRIBE users;
+
+CREATE TABLE coment(
+    id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    id_publi INT(11),
+    usuario VARCHAR(50),
+    comentario VARCHAR(250),
+    fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+DESCRIBE coment;
