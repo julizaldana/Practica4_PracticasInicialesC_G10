@@ -3,6 +3,6 @@ export default {
         host: 'localhost',
         user : 'root',
         password: '123',
-        database: 'ng_cursos_db'
+        database: 'ng_curso_db'
     }
 }

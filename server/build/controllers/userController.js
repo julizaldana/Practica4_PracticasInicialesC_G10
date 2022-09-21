@@ -12,44 +12,44 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.cursoController = void 0;
+exports.userController = void 0;
 const database_curso_1 = __importDefault(require("../database_curso"));
-class CursoController {
+class UserController {
     list(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const cursos = yield database_curso_1.default.query('SELECT * FROM curso');
-            res.json(cursos);
+            const users = yield database_curso_1.default.query('SELECT * FROM users');
+            res.json(users);
         });
     }
-    getOne(req, res) {
+    getcurca(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { codigo_curso } = req.params;
-            const curso = yield database_curso_1.default.query('SELECT * FROM curso WHERE codigo_curso =?', [codigo_curso]);
-            if (curso.length > 0) {
-                return res.json(curso[0]);
+            const { carne } = req.params;
+            const user = yield database_curso_1.default.query('SELECT * FROM users WHERE carne =?', [carne]);
+            if (user.length > 0) {
+                return res.json(user[0]);
             }
-            res.status(404).json({ text: "El curso no existe" });
+            res.status(404).json({ text: "El usuario no existe" });
         });
     }
     create(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_curso_1.default.query('INSERT INTO curso set ?', [req.body]);
-            res.json({ text: 'Curso guardado' });
+            yield database_curso_1.default.query('INSERT INTO users set ?', [req.body]);
+            res.json({ text: 'Usuario guardado' });
         });
     }
     delete(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { codigo_curso } = req.params;
-            yield database_curso_1.default.query('DELETE FROM curso WHERE codigo_curso = ?', [codigo_curso]);
-            res.json({ message: 'Curso eliminado correctamente' });
+            const { carne } = req.params;
+            yield database_curso_1.default.query('DELETE FROM users WHERE carne = ?', [carne]);
+            res.json({ message: 'Usuario eliminado correctamente' });
         });
     }
     update(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { codigo_curso } = req.params;
-            yield database_curso_1.default.query('UPDATE curso set ? WHERE codigo_curso = ?', [req.body, codigo_curso]);
-            res.json({ message: 'Curso actualizado correctamente' });
+            const { carne } = req.params;
+            yield database_curso_1.default.query('UPDATE users set ? WHERE carne = ?', [req.body, carne]);
+            res.json({ message: 'Usuario actualizado correctamente' });
         });
     }
 }
-exports.cursoController = new CursoController();
+exports.userController = new UserController();
