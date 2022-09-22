@@ -1,0 +1,17 @@
+<div class="col-md-4"*ngFor="let ing of ings">
+    <div class="card text-center">
+        <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center" >
+            {{ing.title}}
+            <button class="btn btn-danger" (click)="deleteIng(ing.id)">
+                <i class="far fa-trash alt"></i>
+            </button>
+        </div>
+         <div class="card-body">
+            <p>{{ing.description}}
+                <a href=""class="btn btn-info btn-block">
+                    Editar Publicación
+                </a>
+            </p>
+         </div>
+    </div>
+</div>
