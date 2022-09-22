@@ -25,7 +25,7 @@ CREATE TABLE users(
     carne INT(11) NOT NULL PRIMARY KEY,
     nombres VARCHAR(50),
     apellidos VARCHAR(50),
-    contraseña VARCHAR(50),
+    passw VARCHAR(50),
     correo VARCHAR(50),
     codicursos VARCHAR(50),
     credis INT(11)

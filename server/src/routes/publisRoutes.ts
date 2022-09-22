@@ -9,7 +9,7 @@ class PublisRoutes {
 
     config(): void {
         this.router.get('/',publisController.list);
-        this.router.get('/:id',publisController.getcurca);
+        this.router.get('/:curso_catedratico',publisController.getcurca);
         this.router.post('/', publisController.create)
         this.router.delete('/:id', publisController.delete)
         this.router.put('/:id', publisController.update)

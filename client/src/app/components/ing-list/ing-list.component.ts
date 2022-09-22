@@ -1,5 +1,6 @@
 import { Component, HostBinding, OnInit, ɵisDefaultChangeDetectionStrategy } from '@angular/core';
 import {IngService} from "../../services/ing.service";
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-ing-list',
@@ -13,9 +14,15 @@ export class IngListComponent implements OnInit {
   ings: any = {};
 
   constructor(private ingService: IngService) { }
-
+  usuario = this.ingService.getUser()
+  
   ngOnInit(){
-    this.getIng();
+    if(this.usuario != ""){
+      this.getIng();
+    }
+    else{
+      Swal.fire("Debe loguearse antes")
+    }
   }
 
   getIng(){
@@ -26,7 +33,14 @@ export class IngListComponent implements OnInit {
       err => console.error(err)
     )
   }
-
+  getIngCC(curso_catedratico: string){
+    this.ingService.getIng(curso_catedratico).subscribe(
+      res => {
+        this.ings = res;
+      },
+      err => console.error(err)
+    )
+  }
   deleteIng(id: string){
     this.ingService.deleteIng(id).subscribe(
       res =>{console.log(res);

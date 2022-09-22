@@ -1,17 +1,23 @@
+<div class="container-fluid">
+<form class="d-flex">
+    <input class="form-control me-sm-2" type="text" placeholder="Buscar" id="curso_catedratico" name="curso_catedratico" #curso_catedratico>
+    <button class="btn btn-secondary my-2 my-sm-0" type="submit" (click)="getIngCC(curso_catedratico.value)">Buscar</button>
+  </form>
+  </div>
 <div class="col-md-4"*ngFor="let ing of ings">
     <div class="card text-center">
         <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center" >
-            {{ing.title}}
+            {{ing.curso_catedratico}}
             <button class="btn btn-danger" (click)="deleteIng(ing.id)">
-                <i class="far fa-trash alt"></i>
+                <i class="far fa-trash-alt"></i>
             </button>
         </div>
+        <div class="card-body text-left"><p>{{ing.fecha | date: "yyyy-MM-dd"}}</p></div>
          <div class="card-body">
-            <p>{{ing.description}}
-                <a href=""class="btn btn-info btn-block">
-                    Editar Publicación
-                </a>
-            </p>
+            <p>{{ing.mensaje}}</p>
+            <a href=""class="btn btn-info btn-block">
+                Comentar Publicación
+            </a>
          </div>
     </div>
 </div>

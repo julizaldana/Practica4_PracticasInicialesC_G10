@@ -2,11 +2,14 @@
     <div class="card">
         <div class="card-body">
             <form>
-                <div class="form-group">
-                    <input type="text" name="title" [(ngModel)]="titulo.title" placeholder="Título" class="form-control" autofocus>
+                <div class="form-group">                    
+                    <p  name="user" [(ngModel)]="titulo.user" placeholder="Usuario" class="btn btn-secondary disabled">{{getUser()}}</p>
                 </div>
                 <div class="form-group">
-                    <textarea name="description" [(ngModel)]="titulo.description" placeholder="Descripción" rows="2" class="form-control"></textarea>
+                    <input type="text" name="title" [(ngModel)]="titulo.curso_catedratico" placeholder="Ingrese curso o catedrático" class="form-control" autofocus>
+                </div>
+                <div class="form-group">
+                    <textarea name="description" [(ngModel)]="titulo.mensaje" placeholder="Opinión" rows="2" class="form-control"></textarea>
                 </div>
                 <button class="btn btn-success btn-block" (click)="saveNewPublication()">Publicar</button>
             </form>
@@ -15,8 +18,8 @@
 </div>
 <div class="col-md-4">
     <div class="card card-body text-center">
-        <h3>{{titulo.id}}. {{titulo.title == ""?"Título de la Publicacion":titulo.title}}</h3>
-        <p>{{titulo.description == ""?"Descripción de la Publicacion":titulo.description}}</p>
-        <p>{{titulo.created_at | date: "yyyy-MM-dd"}}</p>
+        <h3>{{titulo.id}}. {{titulo.curso_catedratico == ""?"Título de la Publicacion":titulo.curso_catedratico}}</h3>
+        <p>{{titulo.mensaje == ""?"Descripción de la Publicacion":titulo.mensaje}}</p>
+        <p>{{titulo.fecha | date: "yyyy-MM-dd"}}</p>
     </div>
 </div>

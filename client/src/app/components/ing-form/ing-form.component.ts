@@ -1,4 +1,5 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
+import Swal from 'sweetalert2'
 import { Ing } from 'src/app/models/ing';
 import{IngService} from "../../services/ing.service"
 
@@ -13,24 +14,34 @@ export class IngFormComponent implements OnInit {
 
   titulo: Ing ={
     id: 0,
-    title: "",
-    description: "",
-    created_at: new Date()
+    user: "",
+    curso_catedratico: "",
+    mensaje: "",
+    fecha: new Date()
   }
 
   constructor(private ingService: IngService) { }
-
+  usuario = this.ingService.getUser()
+  
   ngOnInit(): void {
   }
+  
   saveNewPublication(){
-    delete this.titulo.created_at;
-    delete this.titulo.id;
-    this.ingService.saveIng(this.titulo).subscribe(
-      res =>{
-        console.log(res);
-      },
-      err => console.error(err)
-    )
+    if(this.usuario != ""){
+      this.ingService.saveIng(this.titulo).subscribe(
+        res =>{
+          console.log(res);
+        },
+        err => console.error(err)
+      )
+    }
+    else{
+      Swal.fire("Debe loguearse antes")
+    }
+  }
+  getUser(){
+    return this.usuario
   }
 
 }
+

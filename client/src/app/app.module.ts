@@ -8,15 +8,16 @@ import { AppComponent } from './app.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { IngFormComponent } from './components/ing-form/ing-form.component';
 import { IngListComponent } from './components/ing-list/ing-list.component';
-
-import {IngService} from "./services/ing.service"
+import {IngService} from "./services/ing.service";
+import { LoginComponent } from './components/login/login.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
     IngFormComponent,
-    IngListComponent
+    IngListComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

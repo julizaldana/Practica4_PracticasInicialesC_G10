@@ -1,6 +1,14 @@
 export interface Ing{
     id?: number;
-    title?: string;
-    description?: string;
-    created_at?: Date;
+    user?: string;
+    curso_catedratico ?: string;
+    mensaje?: string;
+    fecha?: Date;
+}
+export interface Login{
+    carne?: string;
+    correo?: string;
+    passw?: string;
+    nombres?: string;
+    apellidos?: string;
 }
