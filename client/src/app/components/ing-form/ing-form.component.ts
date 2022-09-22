@@ -34,6 +34,7 @@ export class IngFormComponent implements OnInit {
         },
         err => console.error(err)
       )
+      Swal.fire("Publicación guardada correctamente")
     }
     else{
       Swal.fire("Debe loguearse antes")

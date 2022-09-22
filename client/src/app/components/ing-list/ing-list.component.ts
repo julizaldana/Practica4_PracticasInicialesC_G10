@@ -47,6 +47,7 @@ export class IngListComponent implements OnInit {
       this.getIng();},
       err => console.log(err)
     )
+    Swal.fire("Publicacion eliminada correctamente")
   }
 
 }
